@@ -14,7 +14,7 @@ func generateId(name string, t time.Time) int {
 	h.Write([]byte(uniqueString))
 	return int(h.Sum32())
 }
-func AddTask(name string) {
+func AddTask(name string) error {
 
 	newTask := Task{
 		Name:        name,
@@ -23,7 +23,7 @@ func AddTask(name string) {
 		ID:          generateId(name, time.Now()),
 	}
 	Tasks = append(Tasks, newTask)
-	SaveTasks()
+	return SaveTasks()
 
 }
 

@@ -22,3 +22,7 @@ Core functioning
 i. User writes task-tracker add  [task name]
 ii. the task is added to the json with a key called isCompleted false with the current time
 iii.This is stored in our json file with the task name ,task notes etc
+
+APIs logic
+1.Get api request return all the json data.
+2.Post api ,accept json from the user ,add task and return response

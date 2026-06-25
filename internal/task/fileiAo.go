@@ -22,15 +22,18 @@ func SaveTasks() error {
 }
 func LoadTasks() error {
 	bytes, err := os.ReadFile(fileName)
-	err = json.Unmarshal(bytes, &Tasks)
 	if err != nil {
-
 		if os.IsNotExist(err) {
 			return nil
 		}
-
 		return err
 	}
-
+	if len(bytes) == 0 {
+		return nil
+	}
+	err = json.Unmarshal(bytes, &Tasks)
+	if err != nil {
+		return err
+	}
 	return nil
 }
